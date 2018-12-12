@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import UserList from './UserList';
 
 /*
 This exercise will help you put together and practice all of the concepts you've
@@ -27,6 +28,7 @@ class App extends Component {
           <button onClick={this.createContact}>createContact</button>
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
+        <UserList users={this.state.users}/>
       </div>
     );
   };
