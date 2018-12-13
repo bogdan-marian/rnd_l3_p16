@@ -10,7 +10,7 @@ const User = props => {
     );
 };
 
-User.PropTypes = {
+User.propTypes = {
     showGamesPlayed: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired,
 };
