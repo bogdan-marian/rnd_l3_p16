@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AddUser from './AddUser';
 import UserList from './UserList';
 
 /*
@@ -16,8 +17,11 @@ class App extends Component {
     users:[],
   };
 
-  createContact (){
-    console.log('Hello worls')
+  createContact = user => {
+    user.numGamesPlayd = 0;
+    this.setState(currState => ({
+      users: [...currState.users, user],
+    }));
   };
 
   render() {
@@ -25,9 +29,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <button onClick={this.createContact}>createContact</button>
-          <h1 className="App-title">ReactND - Coding Practice</h1>
+          <h1 className="Ap-title"> ReachtND = Coding Practice</h1>
         </header>
+        <AddUser users={this.state.users} onAddUser = {this.createContact}/>
         <UserList users={this.state.users}/>
       </div>
     );

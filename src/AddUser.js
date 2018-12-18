@@ -11,7 +11,7 @@ class AddUser extends Component {
     userExists: false,
   };
 
-  contactExists = currentUser => {
+  contactExists = currUsername => {
     const users = this.props.users;
     for (let user of users) {
       if (user.username === currUsername) {
@@ -25,7 +25,7 @@ class AddUser extends Component {
     event.preventDefault();
     const userExists = this.contactExists(this.state.user.username);
 
-    if (!userExists){
+    if (!userExists) {
       this.props.onAddUser(this.state.user);
     }
 
@@ -34,12 +34,12 @@ class AddUser extends Component {
     }));
   };
 
-  handleImputChange = event => {
-    const {name, value} = event.target;
+  handleInputChange = event => {
+    const { name, value } = event.target;
 
     this.setState(currState => ({
       ...currState,
-      user:{
+      user: {
         ...currState.user,
         [name]: value,
       },
@@ -47,16 +47,16 @@ class AddUser extends Component {
   };
 
   isDisabled = () => {
-    const {firstName, lastName, username} = this.state.user;
+    const { firstName, lastName, username } = this.state.user;
     return firstName === '' || lastName === '' || username === '';
   };
 
-  render(){
-    const {firstName,lastName,username} = this.state.user;
+  render() {
+    const { firstName, lastName, username } = this.state.user;
 
-    return(
+    return (
       <div>
-                <h1>New User</h1>
+        <h1>New User</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input
